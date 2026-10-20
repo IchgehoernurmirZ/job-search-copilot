@@ -14,8 +14,10 @@ not the fifth.
 1. **Read** the resume (and anything else they pasted). If there's no
    resume, ask for it; that's the only blocker.
 2. **Ask the four essentials** in one message: target roles and level;
-   location / remote / work authorization; salary range; hard no's
-   (industries, role types). Skip any the documents already answer.
+   location (home city, would they relocate, remote OK) and work
+   authorization; salary range; hard no's (industries, role types). Skip
+   any the documents already answer. Fill the location tiers properly
+   in step 6.
 3. **Assess the posting** (`tailor.md` Steps 1 to 4), treating the resume as
    a provisional library. Say once that scores may move a little after
    setup.
@@ -50,7 +52,10 @@ Read everything before asking anything else.
 One message, about six questions, skipping any already answered:
 
 1. Target roles (2 to 4 job families) and level
-2. Location, remote / relocation, work authorization and sponsorship
+2. Location as tiers (see the table in `templates/profile.md`): where
+   they live, how far they'd commute, where they'd relocate for the right
+   role, remote-only regions, and places to always ask about. Plus work
+   authorization and sponsorship
 3. Salary: the range they'd accept, and the single number to put in form
    fields
 4. Hard no's: industries, companies, role types (quota sales, call

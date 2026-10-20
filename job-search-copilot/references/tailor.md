@@ -74,6 +74,17 @@ that in practice predict replies better than the score:
   beautifully tailored resume will not get around that filter, so this
   application belongs in a lower tier, or it needs a referral.
 
+**Location.** Match the posting against the location tiers in
+`profile.md`. Home or commutable: nothing to say. Relocate tier: say so
+in the assessment, and treat a contract or fixed-term role there as a
+Worth-it penalty (moving for twelve months rarely pays). Remote: check
+for "must be located in", time zone, and the authorization country; a
+posting can say remote and still want someone local, and that only shows
+up in the body or at the first screen. If the user decides to apply to a
+relocate-tier role, decide now whether the application says they'd move
+(cover letter, form answer) or stays silent; whichever it is goes on the
+tracker record so every later answer matches it.
+
 **Years of experience.** Count months in roles that do the same kind of
 work the JD asks for (adjacent roles count when the JD says "or a related
 role"; internships count if the JD says so or doesn't exclude them). Say

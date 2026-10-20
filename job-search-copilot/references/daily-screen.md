@@ -63,9 +63,12 @@ No saving step: they already have the links.
 ### 1. Build the queries
 
 From `profile.md` and `criteria.md`, group keywords by job family (3 to 6
-titles per group, quoted, OR-joined) and pick locations (city + "Canada" /
-country with remote). Show the user the query list the first time and save
-it to `criteria.md`.
+titles per group, quoted, OR-joined). Run each group once per location:
+the home city, each "would relocate" city, and the country name for remote
+roles (on LinkedIn, `location=Canada` with the job's own location exactly
+equal to "Canada" is the reliable remote signal; the `f_WT=2` remote
+filter is not). Show the user the query list the first time and save it
+to `criteria.md`.
 
 Search URL pattern (past 24 h, newest first):
 ```
@@ -113,7 +116,13 @@ Before reading any job description:
 - Company exclusions: excluded industries, staffing agencies and job
   aggregators that re-post (keep a growing list in `criteria.md`), and
   companies the user has ruled out. Unescape `&amp;` before matching.
-- Location: keep only places they'd actually go.
+- Location, by the tiers in `profile.md`: home and commutable pass;
+  "would relocate" passes but is tagged; "ask me" goes to the "You decide"
+  list; "no" is dropped. A posting that lists several cities counts once,
+  under the best tier. Postings in a second-language city (e.g. Montreal)
+  get a quick scan for the language requirement before anyone reads the
+  whole JD; "bilingualism required" boilerplate at the end of an Ontario
+  posting is template text, not a requirement.
 
 ### 4. Read the survivors
 
@@ -121,7 +130,12 @@ For each, open `https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/<id>`
 (renders the full description; the search-card snippet and some API
 responses are truncated, and years-of-experience or salary often sit at the
 end). Extract: required years, salary, applicant count, work arrangement,
-language requirements, any technical test in the hiring process. Judge each
+language requirements, any technical test in the hiring process, and the
+real location rules: "must be located in", "must reside in", a required
+time zone, or a work-authorization country that isn't theirs (a "remote"
+US posting that wants US authorization is a "no"). "Remote" in the title
+with "local candidates preferred" in the body is a relocate-tier posting,
+not a remote one. Judge each
 against `criteria.md`, and give it a tier (core / volume / skip).
 
 Look for junk posts: generic templates, keyword-stuffed duties, the same
