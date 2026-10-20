@@ -5,7 +5,7 @@ A skill that lets Claude run your whole job search with you: fit checks on posti
 ## 1. Install (5 minutes)
 
 1. **Turn on code execution**: Settings → Capabilities → turn on "Code execution and file creation" (on Team / Enterprise plans an admin enables this)
-2. **Upload the skill**: Customize → Skills → "+" → "Create skill" → "Upload a skill" → choose `job-search-copilot.zip` (don't unzip it)
+2. **Upload the skill**: Customize → Skills → "+" → "Create skill" → "Upload a skill" → choose `job-search-copilot.zip` (download it from the [repo](https://github.com/IchgehoernurmirZ/job-search-copilot/raw/main/job-search-copilot.zip); don't unzip it)
 3. Make sure the skill is **toggled on** in your list
 
 ## 2. Create a Claude Project (recommended)

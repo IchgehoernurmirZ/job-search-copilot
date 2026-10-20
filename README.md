@@ -28,7 +28,7 @@ decision gets recorded, and the rules you set once stick.
 ## Install
 
 1. In Claude, turn on code execution: **Settings → Capabilities → Code execution and file creation**. (On Team / Enterprise plans an admin does this.)
-2. Download `job-search-copilot.zip` from the latest [release](../../releases), or zip the `job-search-copilot/` folder yourself.
+2. Download [`job-search-copilot.zip`](https://github.com/IchgehoernurmirZ/job-search-copilot/raw/main/job-search-copilot.zip) (or zip the `job-search-copilot/` folder yourself).
 3. **Customize → Skills → + → Create skill → Upload a skill**, choose the zip.
 4. Toggle it on.
 
