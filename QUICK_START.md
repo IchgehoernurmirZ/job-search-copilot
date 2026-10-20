@@ -58,3 +58,7 @@ Already have a job you want to look at? Paste it with your resume. Claude asks f
 - **Take the days off.** It respects your weekly pace and days off. Tell it when you're taking a break and it won't schedule job-search work then
 - **Check in at 20 applications.** Claude will suggest a quick review of response rates once 20 are logged, then every 20 more. Real numbers beat gut feel for deciding where to put effort
 - **Referrals usually beat cold applications.** If you're open to it, set referrals to "ask" and Claude will ask one question per serious application: do you know anyone there?
+
+## Not using Claude?
+
+The same workflow runs on ChatGPT, Gemini, DeepSeek, Kimi and most other capable assistants: paste `PORTABLE_PROMPT.md` from the repo as the assistant's instructions, and use `resume-template.docx` for the resume. You lose the auto-built file and the browser search; everything else works. Details in the README.

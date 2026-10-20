@@ -43,6 +43,32 @@ Optional connections that make it better:
 
 The full user guide is in [QUICK_START.md](QUICK_START.md).
 
+## Using without Claude (ChatGPT, Gemini, DeepSeek, Kimi, others)
+
+The workflow is a set of rules, not Claude-specific code, so most of it
+runs on any capable chat model. The repo ships a portable version:
+
+1. Open [PORTABLE_PROMPT.md](PORTABLE_PROMPT.md) and copy everything below
+   the line.
+2. Paste it as the instructions of a **ChatGPT Project** or **custom GPT**,
+   a **Gemini Gem**, or the system prompt of any assistant that lets you set
+   one (DeepSeek, Kimi, Qwen and similar work too). Start a chat and say
+   "set up my job search" with your resume.
+3. Your data lives in one document the assistant prints at the end of each
+   session; save it and paste it back at the start of the next one. Models
+   with their own project memory can keep it there instead.
+4. For the resume, the assistant writes it in a fixed Markdown shape; paste
+   that into [`resume-template.docx`](job-search-copilot/templates/resume-template.docx),
+   a blank one-page template with the same look the Claude version produces.
+
+What you get: setup and the evidence library, honest fit checks with the
+edge and recency reads, tailored resumes and cover letters, the form-answer
+bank, the tracker, interview prep and debriefs, calibration.
+
+What you don't: the auto-built DOCX and its programmatic checks, and the
+browser-based daily screen (you paste links instead). The prompt is also
+exactly what you'd paste to publish a custom GPT or Gem of your own.
+
 ## How it keeps you honest
 
 - It only writes true things. If something isn't in your evidence library it asks "have you ever done X?". Yes goes in; no gets flagged as a gap, never invented.
@@ -58,10 +84,13 @@ job-search-copilot/
   SKILL.md                 what Claude reads first
   references/              one file per module: setup, tailor, daily screen,
                            tracker, interview, networking
-  templates/               the files Claude creates for you
+  templates/               the files Claude creates for you, plus a blank
+                           one-page resume-template.docx for non-Claude use
   scripts/build_resume.js  one-page resume renderer (JSON spec in, DOCX out)
   scripts/qc.sh            resume checks: page count, filler words, page fill
   scripts/example-spec.json
+PORTABLE_PROMPT.md         the whole workflow as one prompt for other assistants
+QUICK_START.md             user guide
 ```
 
 The resume renderer needs Node with the `docx` package and LibreOffice for the PDF step. Both are present in Claude's code execution environment.
