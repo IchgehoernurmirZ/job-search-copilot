@@ -1,0 +1,93 @@
+{
+  "name": "ALEX CHEN",
+  "contact": [
+    "Toronto, ON  ·  555-010-0199  ·  alex@example.com",
+    "linkedin.com/in/alexchen  ·  alexchen.dev"
+  ],
+  "density": "roomy",
+  "order": [
+    "summary",
+    "skills",
+    "experience",
+    "projects",
+    "education",
+    "certifications"
+  ],
+  "summary": "Product analyst who turns messy operational data into decisions: **40+** dashboards in production at a B2B SaaS company, a reporting pipeline that cut weekly prep from **3 h** to **30 min**, and **12** shipped features scoped from user interviews. Comfortable between engineers, designers, and customers, and quick to prototype with AI tools.",
+  "skills": [
+    [
+      "Product",
+      "Discovery interviews, user stories and acceptance criteria, backlog grooming, release notes, A/B test design"
+    ],
+    [
+      "Data",
+      "SQL (joins, window functions), Python (pandas), Looker, Excel, Amplitude"
+    ],
+    [
+      "Tools",
+      "Jira, Confluence, Figma, Notion, Zapier, Claude"
+    ]
+  ],
+  "experience": [
+    {
+      "company": "Northwind Labs",
+      "role": "Product Analyst",
+      "dates": "Jan 2024 – Present",
+      "context": "B2B scheduling software for clinics",
+      "location": "Toronto, ON",
+      "bullets": [
+        "Built and maintain **40+** Looker dashboards used by product, sales, and support leads in weekly reviews.",
+        "Automated the weekly metrics pack with SQL and Python, cutting prep time from **3 h** to **30 min**.",
+        "Ran **25** customer interviews that reshaped the booking flow roadmap; the resulting redesign lifted completed bookings by **12%**.",
+        "Write user stories and acceptance criteria for **2** squads and run UAT before each release."
+      ]
+    },
+    {
+      "company": "Harbor & Co.",
+      "role": "Operations Coordinator",
+      "dates": "Jun 2023 – Dec 2023",
+      "context": "Regional furniture retailer",
+      "location": "Mississauga, ON",
+      "bullets": [
+        "Rebuilt the delivery scheduling sheet into a shared tracker, reducing missed delivery windows by **30%** over one quarter.",
+        "Coordinated **6** vendors on a store reopening, keeping the launch on its original date.",
+        "Wrote the onboarding guide new coordinators still use."
+      ]
+    },
+    {
+      "company": "University of Example",
+      "role": "Research Assistant",
+      "dates": "Sep 2022 – Apr 2023",
+      "context": "Human-computer interaction lab",
+      "location": "Toronto, ON",
+      "bullets": [
+        "Designed and ran a **40**-participant usability study comparing two mobile check-in flows.",
+        "Cleaned and analyzed study data in Python and presented findings at the lab's term showcase.",
+        "Co-authored the study's internal report used to pick the flow for the next pilot."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "University of Example, Toronto, ON",
+      "degree": "B.Sc. Computer Science  ·  Dean's List",
+      "dates": "Sep 2019 – Apr 2023"
+    }
+  ],
+  "projects": [
+    {
+      "company": "Clinic Wait-Time Tracker",
+      "role": "Side project",
+      "dates": "2025",
+      "context": "No-code prototype built with Glide and Google Sheets",
+      "location": "",
+      "bullets": [
+        "Interviewed **5** front-desk staff about wait-time questions, then built a check-in status page they could update from a phone.",
+        "Ran a two-week pilot at **1** clinic; staff reported fewer \"how much longer?\" calls at the desk."
+      ]
+    }
+  ],
+  "certifications": [
+    "Professional Scrum Product Owner I (PSPO I), Scrum.org, 2025"
+  ]
+}
