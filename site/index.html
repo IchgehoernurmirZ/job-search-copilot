@@ -194,8 +194,9 @@ footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; col
   .hero-art { max-width: 380px; order: -1; }
   .steps, .feats, .diff { grid-template-columns: minmax(0, 1fr); }
   .step:nth-child(n) { margin-top: 0; }
-  .steps { max-width: 560px; margin-left: auto; margin-right: auto; }
-  .step svg { max-width: 260px; margin: 0 auto; }
+  .step { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); column-gap: 32px; row-gap: 12px; align-items: start; padding: 30px 32px 32px; }
+  .step > :not(svg) { grid-column: 1; }
+  .step svg { grid-column: 2; grid-row: 1 / span 5; align-self: center; max-width: 240px; margin: 0 auto; }
   .demo-art { max-width: 280px; justify-self: center; }
   .feat:nth-child(n) { transform: none; }
   .feats-pad { display: none; }
@@ -207,6 +208,8 @@ footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; col
 }
 @media (max-width: 640px) {
   .demo { grid-template-columns: minmax(0, 1fr); }
+  .step { display: flex; padding: 26px 24px 28px; }
+  .step svg { max-width: 240px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
