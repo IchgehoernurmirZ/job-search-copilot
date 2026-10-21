@@ -94,7 +94,8 @@ job-search-copilot/
   scripts/example-spec.json
 PORTABLE_PROMPT.md         the whole workflow as one prompt for other assistants
 QUICK_START.md             user guide
-site/index.html            landing page source
+site/index.html            landing page source (run site/build_pages.sh to refresh docs/)
+docs/                      the landing page as served by GitHub Pages
 ```
 
 The resume renderer needs Node with the `docx` package and LibreOffice for the PDF step. Both are present in Claude's code execution environment.
