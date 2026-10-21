@@ -129,6 +129,9 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 4.4vw, 
 .demo-art .say { font: 600 17px var(--sans); fill: #23211E; }
 .demo-art svg.nest { width: 200px; height: 198px; overflow: visible; }
 .demo-art .me { fill: var(--bg) !important; stroke: none !important; }
+.psst { display: inline-block; margin-top: 8px; font-style: normal; font-size: 14px; color: var(--ink); background: color-mix(in srgb, var(--surface) 70%, transparent); border-radius: 8px; padding: 3px 9px; }
+.demo-art .poke { font: italic 400 15px var(--serif); fill: var(--bg); opacity: .6; }
+.demo-art:hover .poke, .demo-art.egg .poke { opacity: 0; }
 .demo-art { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .demo-art .say-egg { opacity: 0; transition: opacity .15s ease; }
 .demo-art .say-hi { transition: opacity .15s ease; }
@@ -191,7 +194,8 @@ footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; col
   .hero-art { max-width: 380px; order: -1; }
   .steps, .feats, .diff { grid-template-columns: minmax(0, 1fr); }
   .step:nth-child(n) { margin-top: 0; }
-  .step svg { max-width: 260px; }
+  .steps { max-width: 560px; margin-left: auto; margin-right: auto; }
+  .step svg { max-width: 260px; margin: 0 auto; }
   .demo-art { max-width: 280px; justify-self: center; }
   .feat:nth-child(n) { transform: none; }
   .feats-pad { display: none; }
@@ -337,7 +341,7 @@ footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; col
         </svg>
         <h3><span lang="zh">说一句话</span><span lang="en">Say one sentence</span></h3>
         <div class="path">try a demo → set up my job search</div>
-        <p><span lang="zh">先说 try a demo 看看效果；准备好了说 set up my job search，再附上你的简历。</span><span lang="en">Start with "try a demo" to see what it does. When you're ready, say "set up my job search" and attach your resume.</span></p>
+        <p><span lang="zh">先说 try a demo，看它拿我（Zoey 本人）和我真投过的一个岗位跑一遍。轮到你了，就说 set up my job search，附上简历。<br><em class="psst">偷偷说：下面黑色那块里的我，戳一下有彩蛋 👀</em></span><span lang="en">Say "try a demo" and watch it run on me, Zoey, against a job I actually applied to. Your turn? Say "set up my job search" and attach your resume.<br><em class="psst">psst: poke me in the dark box below for an easter egg 👀</em></span></p>
       </div>
     </div>
   </div>
@@ -387,6 +391,8 @@ footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; col
             </g>
           </g>
           <text x="262" y="296" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="18" style="fill:var(--bg)">1 page</text>
+          <text class="poke" x="96" y="296" text-anchor="middle" lang="en">psst, hover me</text>
+          <text class="poke" x="96" y="296" text-anchor="middle" lang="zh">戳我一下</text>
         </svg>
       </div>
     </div>
