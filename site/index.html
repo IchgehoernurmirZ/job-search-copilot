@@ -2,7 +2,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&family=Caveat:wght@500;600&family=Long+Cang&display=swap">
 <style>
 /* Layout: stone page, editorial serif headings, line drawings that draw themselves once, soft colour blocks for each step. */
 :root {
@@ -129,9 +129,10 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 4.4vw, 
 .demo-art .say { font: 600 17px var(--sans); fill: #23211E; }
 .demo-art svg.nest { width: 200px; height: 198px; overflow: visible; }
 .demo-art .me { fill: var(--bg) !important; stroke: none !important; }
-.psst { display: block; margin-top: 10px; font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--muted); }
-.app[data-lang="zh"] .psst { font-family: "Noto Serif SC", var(--serif); font-style: normal; font-size: 14px; }
-.demo-art .poke { font: italic 400 15px var(--serif); fill: var(--bg); opacity: .6; }
+.psst { display: block; margin-top: 10px; font-family: "Caveat", cursive; font-style: normal; font-weight: 600; font-size: 22px; line-height: 1.2; color: var(--muted); transform: rotate(-1.5deg); transform-origin: left center; }
+.app[data-lang="zh"] .psst { font-family: "Long Cang", "Caveat", cursive; font-weight: 400; font-size: 21px; }
+.demo-art .poke { font: 600 19px "Caveat", cursive; fill: var(--bg); opacity: .7; }
+.app[data-lang="zh"] .demo-art .poke { font: 400 18px "Long Cang", cursive; }
 .demo-art:hover .poke, .demo-art.egg .poke { opacity: 0; }
 .demo-art { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .demo-art .say-egg { opacity: 0; transition: opacity .15s ease; }
