@@ -162,11 +162,14 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 4.4vw, 
 /* features: staggered */
 .feats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; margin-top: 44px; }
 .feat { position: relative; background: var(--surface); border-radius: 22px; padding: 26px 24px 28px; overflow: hidden; }
-.feat:nth-child(3n+2) { transform: translateY(40px); }
+.feat { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, opacity .6s ease; }
+.feat:hover { transform: translateY(-4px); box-shadow: 0 10px 28px -18px rgba(35,33,30,.35); }
+.feat .big { transition: color .35s ease, transform .35s ease; }
+.feat:hover .big { color: var(--muted); transform: translateY(2px); }
+.anim .feat.pre { opacity: 0; transform: translateY(18px); }
 .feat .big { position: absolute; right: 14px; top: -6px; font-family: var(--serif); font-size: 104px; line-height: 1; color: var(--rule); pointer-events: none; }
 .feat h3 { font-size: 20px; margin: 62px 0 8px; position: relative; }
 .feat p { margin: 0; color: var(--muted); font-size: 15.5px; position: relative; }
-.feats-pad { height: 40px; }
 
 /* different */
 .diff { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 40px; border-top: 1px solid var(--rule); }
@@ -205,8 +208,6 @@ footer .sig .fb { display: block; margin-top: 8px; font-family: var(--sans); fon
   .step > :not(svg) { grid-column: 1; }
   .step svg { grid-column: 2; grid-row: 1 / span 5; align-self: center; max-width: 240px; margin: 0 auto; }
   .demo-art { max-width: 280px; justify-self: center; }
-  .feat:nth-child(n) { transform: none; }
-  .feats-pad { display: none; }
   .diff > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
   .prompts { grid-template-columns: minmax(0, 1fr); }
   footer .wrap { grid-template-columns: minmax(0, 1fr); }
@@ -441,7 +442,6 @@ footer .sig .fb { display: block; margin-top: 8px; font-family: var(--sans); fon
       <div class="feat"><span class="big">5</span><h3><span lang="zh">投递记录和复盘</span><span lang="en">Tracker and check-ins</span></h3><p><span lang="zh">连 JD 全文一起存（岗位说没就没）。投满 20 份，帮你看哪类岗位有回音、该怎么调。</span><span lang="en">Saves the full job description (because postings vanish). At 20 applications it shows what's getting replies and what to change.</span></p></div>
       <div class="feat"><span class="big">6</span><h3><span lang="zh">面试准备</span><span lang="en">Interview prep</span></h3><p><span lang="zh">预测题、用你真实经历写的答案、薪资怎么谈。面完陪你复盘：哪里卡壳了、下次怎么说。</span><span lang="en">Likely questions, answers from your real experience, how to talk money. After, a debrief: where you froze and what to say next time.</span></p></div>
     </div>
-    <div class="feats-pad"></div>
   </div>
 </section>
 
@@ -525,6 +525,19 @@ footer .sig .fb { display: block; margin-top: 8px; font-family: var(--sans); fon
     try { document.execCommand('copy'); flash(btn); } catch (e) {}
     document.body.removeChild(ta);
   }
+  // feature cards rise in, one after another, the first time they scroll into view
+  try {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var feats = Array.prototype.slice.call(document.querySelectorAll('.feat'));
+    if (!reduce && 'IntersectionObserver' in window && feats.length) {
+      app.classList.add('anim');
+      feats.forEach(function (f, i) { f.classList.add('pre'); f.style.transitionDelay = (i % 3) * 90 + Math.floor(i / 3) * 60 + 'ms'; });
+      var show = function (f) { f.classList.remove('pre'); setTimeout(function () { f.style.transitionDelay = ''; }, 900); };
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } }); }, { threshold: 0.15 });
+      feats.forEach(function (f) { io.observe(f); });
+      setTimeout(function () { feats.forEach(show); }, 4000);
+    }
+  } catch (e) {}
   var art = document.querySelector('.demo-art');
   if (art) art.addEventListener('click', function () { art.classList.toggle('egg'); });
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
