@@ -124,7 +124,19 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 4.4vw, 
 .demo .chip-big { margin-top: 26px; }
 .chip { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 15px; border-radius: 999px; padding: 10px 12px 10px 18px; border: 1.5px solid currentColor; background: transparent; color: inherit; cursor: pointer; }
 .chip .tag { font-family: var(--sans); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--pop); color: #fff; }
-.demo-art { width: 100%; max-width: 260px; justify-self: center; }
+.demo-art { width: 100%; max-width: 340px; justify-self: center; }
+.demo-art .bubble { fill: var(--butter) !important; stroke: none !important; }
+.demo-art .say { font: 600 17px var(--sans); fill: #23211E; }
+.demo-art .skin { fill: #F3D9C6 !important; stroke: var(--bg); }
+.demo-art .hair { fill: #2F2B27 !important; stroke: var(--bg) !important; }
+.demo-art .sweater { fill: var(--pop) !important; stroke: var(--bg); }
+.demo-art .eye { fill: #23211E !important; stroke: none !important; }
+.demo-art .smile { stroke: #23211E !important; }
+.demo-art .cheek { fill: #EFA48F !important; stroke: none !important; opacity: .7; }
+.demo-art .arm { stroke: var(--bg); stroke-width: 9 !important; }
+.demo-art .paper { fill: color-mix(in srgb, var(--bg) 6%, transparent) !important; }
+.wave { animation: wave 2.6s ease-in-out infinite; transform-box: view-box; transform-origin: 142px 222px; }
+@keyframes wave { 0%, 60%, 100% { transform: rotate(0deg); } 70% { transform: rotate(-14deg); } 80% { transform: rotate(6deg); } 90% { transform: rotate(-10deg); } }
 .demo-art svg { width: 100%; height: auto; display: block; }
 .demo-art .draw path, .demo-art .draw rect, .demo-art .draw line, .demo-art .draw circle, .demo-art .draw polyline { stroke: var(--bg); }
 
@@ -170,12 +182,13 @@ footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; col
 
 /* responsive */
 @media (max-width: 860px) {
-  .hero .wrap, .demo { grid-template-columns: minmax(0, 1fr); }
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .demo { grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: 24px; }
   .hero-art { max-width: 380px; order: -1; }
   .steps, .feats, .diff { grid-template-columns: minmax(0, 1fr); }
   .step:nth-child(n) { margin-top: 0; }
   .step svg { max-width: 260px; }
-  .demo-art { max-width: 220px; justify-self: start; }
+  .demo-art { max-width: 280px; justify-self: center; }
   .feat:nth-child(n) { transform: none; }
   .feats-pad { display: none; }
   .diff > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
@@ -183,6 +196,9 @@ footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; col
   footer .wrap { grid-template-columns: minmax(0, 1fr); }
   footer .sig { text-align: left; }
   section { padding-block: 44px; }
+}
+@media (max-width: 640px) {
+  .demo { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -334,21 +350,48 @@ footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; col
         <div class="chip-big"><button class="chip" type="button" data-copy="try a demo" style="color:var(--bg)">try a demo <span class="tag"><span lang="zh">复制</span><span lang="en">Copy</span></span></button></div>
       </div>
       <div class="demo-art" aria-hidden="true">
-        <svg class="draw" viewBox="0 0 300 270">
-          <rect x="70" y="20" width="160" height="210" rx="14"/>
-          <line x1="96" y1="52" x2="170" y2="52"/>
-          <line x1="96" y1="66" x2="146" y2="66" style="opacity:.6"/>
-          <line x1="96" y1="96" x2="204" y2="96" style="opacity:.6"/>
-          <line x1="96" y1="112" x2="196" y2="112" style="opacity:.6"/>
-          <line x1="96" y1="128" x2="204" y2="128" style="opacity:.6"/>
-          <line x1="96" y1="158" x2="186" y2="158" style="opacity:.6"/>
-          <line x1="96" y1="174" x2="204" y2="174" style="opacity:.6"/>
-          <line x1="96" y1="190" x2="170" y2="190" style="opacity:.6"/>
-          <g class="bob">
-            <circle cx="236" cy="54" r="26" style="fill:var(--pop);stroke:none"/>
-            <polyline points="224,54 233,63 249,45" style="stroke:#fff;stroke-width:3"/>
+        <svg class="draw" viewBox="0 0 340 300">
+          <!-- speech bubble -->
+          <g class="bob" style="animation-delay:.6s">
+            <path class="bubble" d="M18 18 h132 a14 14 0 0 1 14 14 v26 a14 14 0 0 1 -14 14 h-78 l-14 14 v-14 h-40 a14 14 0 0 1 -14 -14 v-26 a14 14 0 0 1 14 -14 z"/>
+            <text class="say" x="84" y="51" text-anchor="middle" lang="en">hi, I'm Zoey</text>
+            <text class="say" x="84" y="51" text-anchor="middle" lang="zh">嗨，我是 Zoey</text>
           </g>
-          <text x="150" y="262" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="22" style="fill:var(--bg)">1 page</text>
+          <!-- body -->
+          <path class="sweater" d="M38 292 C 36 222, 62 196, 96 196 C 130 196, 156 222, 154 292"/>
+          <!-- neck -->
+          <path class="skin" d="M86 178 h20 v22 a10 10 0 0 1 -20 0 z"/>
+          <!-- head -->
+          <circle class="skin" cx="96" cy="146" r="38"/>
+          <!-- bob hair -->
+          <path class="hair" d="M56 160 C 50 112, 72 100, 96 100 C 124 100, 144 114, 138 162 C 136 172, 132 176, 128 176 C 130 150, 122 128, 104 122 C 90 136, 72 140, 62 138 C 60 152, 62 166, 64 176 C 60 176, 57 170, 56 160 Z"/>
+          <!-- face -->
+          <circle class="eye" cx="84" cy="152" r="3.2"/>
+          <circle class="eye" cx="110" cy="152" r="3.2"/>
+          <path class="smile" d="M88 166 q9 8 18 0"/>
+          <circle class="cheek" cx="76" cy="164" r="5"/>
+          <circle class="cheek" cx="118" cy="164" r="5"/>
+          <!-- waving arm -->
+          <g class="wave">
+            <path class="arm" d="M142 222 C 158 206, 166 190, 170 172"/>
+            <circle class="skin" cx="172" cy="164" r="9"/>
+          </g>
+          <!-- resume she is holding -->
+          <g class="bob" style="animation-delay:1.2s">
+            <rect class="paper" x="196" y="122" width="116" height="148" rx="12" transform="rotate(6 254 196)"/>
+            <g transform="rotate(6 254 196)">
+              <line x1="214" y1="148" x2="268" y2="148"/>
+              <line x1="214" y1="160" x2="246" y2="160" style="opacity:.6"/>
+              <line x1="214" y1="182" x2="292" y2="182" style="opacity:.6"/>
+              <line x1="214" y1="194" x2="286" y2="194" style="opacity:.6"/>
+              <line x1="214" y1="206" x2="292" y2="206" style="opacity:.6"/>
+              <line x1="214" y1="228" x2="280" y2="228" style="opacity:.6"/>
+              <line x1="214" y1="240" x2="292" y2="240" style="opacity:.6"/>
+              <circle cx="304" cy="128" r="18" style="fill:var(--pop);stroke:none"/>
+              <polyline points="296,128 302,134 313,122" style="stroke:#fff;stroke-width:3"/>
+            </g>
+          </g>
+          <text x="262" y="296" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="18" style="fill:var(--bg)">1 page</text>
         </svg>
       </div>
     </div>
