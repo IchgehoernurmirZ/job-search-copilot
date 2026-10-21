@@ -5,6 +5,8 @@ checks on postings, one-page tailored resumes built only from things you've
 actually done, an application tracker, a daily screen for new roles, and
 interview prep and debriefs.
 
+**Website, install steps and a two-minute demo: https://jobs.ziyizhang.app**
+
 It came out of one real job search (130+ applications over two months) and
 the rules that search settled on. The point isn't any single resume. It's
 that every resume is assembled from a fixed library of true facts, every
