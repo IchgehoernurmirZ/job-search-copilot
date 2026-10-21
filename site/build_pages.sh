@@ -12,4 +12,5 @@ cd "$(dirname "$0")/.."
   echo '</body></html>'
 } > docs/index.html
 touch docs/.nojekyll
+echo "jobs.ziyizhang.app" > docs/CNAME
 echo "wrote docs/index.html"
