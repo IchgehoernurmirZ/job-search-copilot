@@ -190,6 +190,9 @@ footer .wrap { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1f
 footer p { margin: 0 0 10px; color: var(--muted); font-size: 14px; max-width: 46em; }
 footer strong { color: var(--ink); }
 footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; color: var(--ink); }
+footer .sig .me-link { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: var(--pop); }
+footer .sig .me-link:hover { color: var(--pop); }
+footer .sig .fb { display: block; margin-top: 8px; font-family: var(--sans); font-size: 13px; color: var(--muted); }
 
 /* responsive */
 @media (max-width: 860px) {
@@ -479,7 +482,8 @@ footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; col
       <p><span lang="zh">评分和建议是 AI 根据公开信息和你自己的资料给的，会出错，也不算职业建议。投出去之前，每份材料都请自己过一眼！</span><span lang="en">Scores and advice are an AI reading public info and your own notes. It can be wrong and it's not career advice, so please read everything before you hit send!</span></p>
       <p>MIT License · <a href="https://github.com/IchgehoernurmirZ/job-search-copilot" target="_blank" rel="noopener">github.com/IchgehoernurmirZ/job-search-copilot</a></p>
     </div>
-    <div class="sig">made by zoey z</div>
+    <div class="sig">made by <a href="mailto:zoey42zhang@gmail.com?subject=job-search-copilot%20feedback" class="me-link">zoey z</a>
+      <span class="fb"><span lang="en">feedback, bugs, job leads, all welcome! just click my name</span><span lang="zh">欢迎来找我提意见、报 bug、或者内推我哈哈，点我名字就能发邮件</span></span></div>
   </div>
 </footer>
 
