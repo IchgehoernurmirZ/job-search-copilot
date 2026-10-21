@@ -1,6 +1,6 @@
 ---
 name: job-search-copilot
-description: End-to-end job search workflow for one person - first-time setup of their profile and evidence library, honest fit scoring of a posting, a tailored one-page resume (DOCX + PDF), an application tracker, a daily LinkedIn screening run, and interview prep and debriefs. Use whenever the user shares a job link or job description, asks "should I apply", "is this a good fit", "tailor my resume", "write a cover letter", 分析一下匹配度, 定制简历, wants to run today's job search, log an application, check how applications are going, or prepare for / debrief an interview. Also use when they say "set up my job search" or have not set it up yet.
+description: End-to-end job search workflow for one person - first-time setup of their profile and evidence library, honest fit scoring of a posting, a tailored one-page resume (DOCX + PDF), an application tracker, a daily LinkedIn screening run, and interview prep and debriefs. Use whenever the user shares a job link or job description, asks "should I apply", "is this a good fit", "tailor my resume", "write a cover letter", 分析一下匹配度, 定制简历, wants to run today's job search, log an application, check how applications are going, or prepare for / debrief an interview. Also use when they say "set up my job search", "try a demo", or have not set it up yet.
 ---
 
 # Job search copilot
@@ -36,13 +36,16 @@ sections of one `job-search-workspace.md`.
 them wait through full setup. Follow setup's quick-start path: read their
 resume, ask the four essential questions, give the assessment, and build
 the rest of the library while making the resume, aimed at this posting's
-gaps. **If they're missing and there's no posting:** run full setup
-(`references/setup.md`).
+gaps. **If they're missing and there's no posting:** if they haven't seen the
+skill before, offer the demo first in one line ("want to see a two-minute
+demo with a made-up person before we set you up?"); otherwise run full
+setup (`references/setup.md`).
 
 ## Pick the module
 
 | The user wants... | Read |
 |---|---|
+| "Try a demo" / "show me what you can do" / 试玩, or asks what this does with no resume or posting | `references/demo.md` |
 | First-time setup, or to add a new experience to the library | `references/setup.md` |
 | Fit check / should I apply / tailored resume for one posting | `references/tailor.md` |
 | "Run today's job search" / find new postings / "help me apply to the ones I picked" | `references/daily-screen.md` |

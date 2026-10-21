@@ -28,7 +28,9 @@ No Project? It still works: attach both files whenever you start a new chat.
 
 ## 4. Your first session
 
-In the Project, start a chat and say:
+Not sure yet? Say **try a demo** first. Claude runs the whole flow for a made-up person against a made-up posting (fit check, resume plan, a finished one-page resume) in about two minutes. Nothing about you is used or saved.
+
+When you're ready, in the Project, start a chat and say:
 
 > Set up my job search
 

@@ -32,7 +32,9 @@ decision gets recorded, and the rules you set once stick.
 3. **Customize → Skills → + → Create skill → Upload a skill**, choose the zip.
 4. Toggle it on.
 
-Then start a chat and say **"set up my job search"** with your current resume attached. Setup takes about 15 to 20 minutes, once. Already have a posting you want to look at? Paste it with your resume and Claude gives you a provisional fit check first.
+Want to see it work first? Start a chat and say **"try a demo"**. Claude runs a full fit check and builds a one-page resume for a made-up person and posting, in about two minutes, without asking you anything.
+
+When you're ready, start a chat and say **"set up my job search"** with your current resume attached. Setup takes about 15 to 20 minutes, once. Already have a posting you want to look at? Paste it with your resume and Claude gives you a provisional fit check first.
 
 A Claude **Project** is recommended: Claude keeps what it learns about you in two files you add to the Project, so every future chat can read them. Without a Project it still works; you attach the two files when you start a chat.
 
@@ -83,7 +85,8 @@ exactly what you'd paste to publish a custom GPT or Gem of your own.
 job-search-copilot/
   SKILL.md                 what Claude reads first
   references/              one file per module: setup, tailor, daily screen,
-                           tracker, interview, networking
+                           tracker, interview, networking, demo
+  demo/                    fictional person and posting for "try a demo"
   templates/               the files Claude creates for you, plus a blank
                            one-page resume-template.docx for non-Claude use
   scripts/build_resume.js  one-page resume renderer (JSON spec in, DOCX out)
@@ -91,6 +94,7 @@ job-search-copilot/
   scripts/example-spec.json
 PORTABLE_PROMPT.md         the whole workflow as one prompt for other assistants
 QUICK_START.md             user guide
+site/index.html            landing page source
 ```
 
 The resume renderer needs Node with the `docx` package and LibreOffice for the PDF step. Both are present in Claude's code execution environment.

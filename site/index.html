@@ -1,0 +1,479 @@
+<title>Job Search Copilot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+/* Layout: stone page, editorial serif headings, line drawings that draw themselves once, soft colour blocks for each step. */
+:root {
+  --bg: #ECEAE5;
+  --surface: #F7F6F2;
+  --ink: #23211E;
+  --muted: #6A665E;
+  --rule: #CFCBC2;
+  --butter: #F8EDC2;
+  --sky: #D9E7F3;
+  --mint: #DAEBDD;
+  --blush: #F5DCD5;
+  --lilac: #E5DFF2;
+  --pop: #E8603C;
+  --serif: "Newsreader", "Noto Serif SC", "Songti SC", Georgia, serif;
+  --sans: "Schibsted Grotesk", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1C1B19; --surface: #262522; --ink: #EEEBE4; --muted: #A49F95; --rule: #3A3833;
+    --butter: #3A3322; --sky: #1F2D3A; --mint: #1F3027; --blush: #3A2622; --lilac: #2B2638; --pop: #F07A55;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1C1B19; --surface: #262522; --ink: #EEEBE4; --muted: #A49F95; --rule: #3A3833;
+  --butter: #3A3322; --sky: #1F2D3A; --mint: #1F3027; --blush: #3A2622; --lilac: #2B2638; --pop: #F07A55;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* language */
+.app[data-lang="zh"] [lang="en"], .app[data-lang="en"] [lang="zh"] { display: none !important; }
+.app[data-lang="zh"] { font-family: "Noto Sans SC", var(--sans); }
+.app[data-lang="zh"] .serif { font-family: "Noto Serif SC", var(--serif); font-weight: 700; letter-spacing: 0.01em; }
+
+/* header */
+header.top { padding-block: 22px; }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.mark { font-family: var(--serif); font-size: 22px; font-weight: 500; text-decoration: none; letter-spacing: -0.01em; }
+.mark span { color: var(--pop); }
+.top-right { display: flex; align-items: center; gap: 10px; }
+.lang { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 999px; overflow: hidden; }
+.lang button { appearance: none; border: 0; background: transparent; color: var(--ink); font: 600 14px/1 var(--sans); padding: 8px 14px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.gh { font-size: 14px; font-weight: 600; text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 1px; }
+
+/* hero */
+.hero { padding-block: 40px 72px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 48px; align-items: center; }
+.eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.app[data-lang="zh"] .eyebrow { letter-spacing: 0.12em; }
+h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 6.4vw, 78px); line-height: 1.04; letter-spacing: -0.02em; margin: 18px 0 0; text-wrap: balance; }
+h1 em { font-style: italic; }
+.app[data-lang="zh"] h1 { line-height: 1.22; letter-spacing: 0; font-size: clamp(38px, 5.6vw, 66px); }
+.lede { font-size: 20px; color: var(--muted); max-width: 34em; margin: 26px 0 0; }
+.app[data-lang="zh"] .lede { font-size: 18px; line-height: 1.85; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.btn { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 999px; padding: 14px 16px 14px 24px; border: 1.5px solid var(--ink); transition: transform .2s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn:focus-visible, button:focus-visible, a:focus-visible { outline: 2.5px solid var(--pop); outline-offset: 3px; }
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn .circ { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--bg); color: var(--ink); }
+.btn.secondary .circ { background: var(--ink); color: var(--bg); }
+.note { font-size: 14px; color: var(--muted); margin-top: 18px; }
+
+/* line drawings */
+.draw path, .draw line, .draw circle, .draw rect, .draw polyline { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.draw .fill-butter { fill: var(--butter); }
+.draw .fill-sky { fill: var(--sky); }
+.draw .fill-mint { fill: var(--mint); }
+.draw .fill-blush { fill: var(--blush); }
+.draw .fill-pop { fill: var(--pop); stroke: none; }
+.draw .soft { stroke: var(--muted); stroke-width: 1.6; }
+.stroke-in { stroke-dasharray: var(--len, 600); stroke-dashoffset: 0; animation: drawIn 1.8s cubic-bezier(.6,.1,.2,1) both; }
+@keyframes drawIn { from { stroke-dashoffset: var(--len, 600); } to { stroke-dashoffset: 0; } }
+.travel { offset-path: path("M40 320 C 120 250, 170 360, 250 290 S 380 230, 420 150"); animation: travel 6s ease-in-out infinite; }
+@keyframes travel { 0% { offset-distance: 0%; } 70%, 100% { offset-distance: 100%; } }
+.bob { animation: bob 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.toggle-knob { animation: knob 3.6s ease-in-out infinite; transform-box: fill-box; }
+@keyframes knob { 0%, 25% { transform: translateX(0); } 40%, 85% { transform: translateX(26px); } 100% { transform: translateX(0); } }
+.toggle-track { animation: track 3.6s ease-in-out infinite; }
+@keyframes track { 0%, 25% { fill: var(--surface); } 40%, 85% { fill: var(--mint); } 100% { fill: var(--surface); } }
+.caret { animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.hero-art { width: 100%; max-width: 480px; justify-self: center; }
+.hero-art svg { width: 100%; height: auto; display: block; }
+
+/* sections */
+section { padding-block: 72px; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 32px; border-top: 1.5px solid var(--ink); padding-top: 18px; }
+h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+.app[data-lang="zh"] h2 { line-height: 1.3; letter-spacing: 0; }
+.sec-head p { margin: 0; color: var(--muted); max-width: 30em; }
+
+/* steps */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 40px; }
+.step { border-radius: 24px; padding: 26px 26px 30px; display: flex; flex-direction: column; gap: 14px; }
+.step:nth-child(1) { background: var(--butter); }
+.step:nth-child(2) { background: var(--sky); margin-top: 36px; }
+.step:nth-child(3) { background: var(--mint); margin-top: 72px; }
+.step .n { font-family: var(--serif); font-size: 64px; line-height: 1; }
+.step h3 { font-size: 21px; margin: 0; line-height: 1.35; }
+.step p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.step .path { font-family: var(--mono); font-size: 13px; background: var(--surface); border-radius: 10px; padding: 8px 12px; color: var(--ink); overflow-wrap: anywhere; }
+.step svg { width: 100%; height: auto; max-height: 140px; display: block; }
+
+/* demo block */
+.demo { background: var(--ink); color: var(--bg); border-radius: 32px; padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 36px; align-items: center; }
+.demo h2 { color: var(--bg); }
+.demo p { color: color-mix(in srgb, var(--bg) 78%, var(--ink)); margin: 18px 0 0; max-width: 34em; }
+.demo .chip-big { margin-top: 26px; }
+.chip { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 15px; border-radius: 999px; padding: 10px 12px 10px 18px; border: 1.5px solid currentColor; background: transparent; color: inherit; cursor: pointer; }
+.chip .tag { font-family: var(--sans); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--pop); color: #fff; }
+.demo-art svg { width: 100%; height: auto; display: block; }
+.demo-art .draw path, .demo-art .draw rect, .demo-art .draw line, .demo-art .draw circle, .demo-art .draw polyline { stroke: var(--bg); }
+
+/* prompts */
+.prompts { margin-top: 36px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+.prompt { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+.prompt .what { font-size: 14px; color: var(--muted); }
+.prompt .say { font-family: var(--mono); font-size: 15px; margin-top: 4px; overflow-wrap: anywhere; }
+.copy { flex: 0 0 auto; appearance: none; border: 1.5px solid var(--ink); background: var(--surface); color: var(--ink); border-radius: 999px; font: 600 13px/1 var(--sans); padding: 9px 14px; cursor: pointer; }
+.copy.done { background: var(--mint); }
+
+/* features: staggered */
+.feats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; margin-top: 44px; }
+.feat { position: relative; background: var(--surface); border-radius: 22px; padding: 26px 24px 28px; overflow: hidden; }
+.feat:nth-child(3n+2) { transform: translateY(40px); }
+.feat .big { position: absolute; right: 14px; top: -6px; font-family: var(--serif); font-size: 104px; line-height: 1; color: var(--rule); pointer-events: none; }
+.feat .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink); }
+.feat h3 { font-size: 20px; margin: 18px 0 8px; position: relative; }
+.feat p { margin: 0; color: var(--muted); font-size: 15.5px; position: relative; }
+.feats-pad { height: 40px; }
+
+/* different */
+.diff { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 40px; border-top: 1px solid var(--rule); }
+.diff > div { padding: 26px 26px 6px 0; }
+.diff > div + div { padding-left: 26px; border-left: 1px solid var(--rule); }
+.diff h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 12px; }
+.app[data-lang="zh"] .diff h3 { font-size: 24px; line-height: 1.4; }
+.diff p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+/* portable */
+.portable { background: var(--lilac); border-radius: 28px; padding: clamp(24px, 4vw, 44px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.portable h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; margin: 0; }
+.app[data-lang="zh"] .portable h3 { font-size: 26px; }
+.portable p { margin: 8px 0 0; color: var(--muted); max-width: 36em; }
+.portable .links { display: flex; flex-wrap: wrap; gap: 10px; }
+.portable .links a { font-weight: 600; font-size: 15px; text-decoration: none; border: 1.5px solid var(--ink); border-radius: 999px; padding: 10px 16px; background: var(--surface); }
+
+footer { padding-block: 56px 64px; border-top: 1.5px solid var(--ink); margin-top: 40px; }
+footer .wrap { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 32px; }
+footer p { margin: 0 0 10px; color: var(--muted); font-size: 14px; max-width: 46em; }
+footer strong { color: var(--ink); }
+footer .sig { text-align: right; font-family: var(--serif); font-size: 20px; color: var(--ink); }
+
+/* responsive */
+@media (max-width: 860px) {
+  .hero .wrap, .demo { grid-template-columns: minmax(0, 1fr); }
+  .hero-art { max-width: 380px; order: -1; }
+  .steps, .feats, .diff { grid-template-columns: minmax(0, 1fr); }
+  .step:nth-child(n) { margin-top: 0; }
+  .feat:nth-child(n) { transform: none; }
+  .feats-pad { display: none; }
+  .diff > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
+  .prompts { grid-template-columns: minmax(0, 1fr); }
+  footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  footer .sig { text-align: left; }
+  section { padding-block: 52px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+<div class="app" id="app" data-lang="zh">
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="https://github.com/IchgehoernurmirZ/job-search-copilot" target="_blank" rel="noopener">job-search-copilot<span>.</span></a>
+    <div class="top-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="lang-zh" data-set="zh" aria-pressed="true">中文</button>
+        <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="gh" href="https://github.com/IchgehoernurmirZ/job-search-copilot" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span lang="zh">免费开源 · Claude skill</span><span lang="en">Free and open source · a Claude skill</span></div>
+      <h1 class="serif">
+        <span lang="zh">一个会记住你的<br>AI 求职搭档</span>
+        <span lang="en">A job search copilot that <em>remembers you</em></span>
+      </h1>
+      <p class="lede">
+        <span lang="zh">贴一个 JD，它告诉你值不值得投；写简历只用你真做过的事；投满 20 份，它用你自己的回音数据告诉你接下来往哪走。</span>
+        <span lang="en">Paste a job posting and it tells you whether it's worth your time. It writes resumes only from things you've actually done. After 20 applications, it uses your own reply data to tell you where to aim next.</span>
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/IchgehoernurmirZ/job-search-copilot/raw/main/job-search-copilot.zip" target="_blank" rel="noopener">
+          <span lang="zh">下载 skill</span><span lang="en">Download the skill</span>
+          <span class="circ" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v10M2.5 6.8 7 11.3l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="btn secondary" href="#demo">
+          <span lang="zh">先试玩两分钟</span><span lang="en">Try a 2-minute demo</span>
+          <span class="circ" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+      <p class="note"><span lang="zh">第一次设置约 15 分钟，之后每天说一句话就行。</span><span lang="en">About 15 minutes to set up once, then one sentence a day.</span></p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg class="draw" viewBox="0 0 460 400">
+        <!-- the route: posting → assess → resume → reply -->
+        <path class="soft stroke-in" style="--len:520;animation-delay:.2s" stroke-dasharray="4 7" d="M40 320 C 120 250, 170 360, 250 290 S 380 230, 420 150"/>
+        <!-- posting card -->
+        <rect class="fill-sky stroke-in" style="--len:420" x="18" y="250" width="110" height="130" rx="12" transform="rotate(-6 73 315)"/>
+        <line class="stroke-in" style="--len:70;animation-delay:.5s" x1="38" y1="280" x2="100" y2="274"/>
+        <line class="stroke-in soft" style="--len:70;animation-delay:.6s" x1="40" y1="300" x2="104" y2="294"/>
+        <line class="stroke-in soft" style="--len:70;animation-delay:.7s" x1="42" y1="320" x2="96" y2="315"/>
+        <line class="stroke-in soft" style="--len:70;animation-delay:.8s" x1="44" y1="340" x2="102" y2="334"/>
+        <!-- magnifier -->
+        <g class="bob" style="animation-delay:.4s">
+          <circle class="fill-butter stroke-in" style="--len:200;animation-delay:.6s" cx="190" cy="250" r="30"/>
+          <line class="stroke-in" style="--len:40;animation-delay:.9s" x1="212" y1="272" x2="236" y2="296"/>
+          <polyline class="stroke-in" style="--len:50;animation-delay:1.1s" points="176,250 186,260 205,240"/>
+        </g>
+        <!-- resume sheet -->
+        <rect class="fill-blush stroke-in" style="--len:560;animation-delay:.5s" x="250" y="40" width="150" height="190" rx="12" transform="rotate(5 325 135)"/>
+        <line class="stroke-in" style="--len:80;animation-delay:1s" x1="276" y1="72" x2="350" y2="78"/>
+        <line class="stroke-in soft" style="--len:110;animation-delay:1.1s" x1="273" y1="100" x2="378" y2="109"/>
+        <line class="stroke-in soft" style="--len:110;animation-delay:1.2s" x1="271" y1="122" x2="376" y2="131"/>
+        <line class="stroke-in soft" style="--len:90;animation-delay:1.3s" x1="269" y1="144" x2="356" y2="152"/>
+        <line class="stroke-in soft" style="--len:110;animation-delay:1.4s" x1="267" y1="166" x2="372" y2="175"/>
+        <line class="stroke-in soft" style="--len:80;animation-delay:1.5s" x1="265" y1="188" x2="342" y2="195"/>
+        <!-- reply bubble -->
+        <g class="bob" style="animation-delay:1.2s">
+          <path class="fill-mint stroke-in" style="--len:300;animation-delay:1.3s" d="M330 300 h92 a14 14 0 0 1 14 14 v30 a14 14 0 0 1 -14 14 h-58 l-18 16 v-16 h-16 a14 14 0 0 1 -14 -14 v-30 a14 14 0 0 1 14 -14 z"/>
+          <circle class="fill-pop" cx="352" cy="329" r="4"/>
+          <circle class="fill-pop" cx="368" cy="329" r="4"/>
+          <circle class="fill-pop" cx="384" cy="329" r="4"/>
+        </g>
+        <!-- travelling dot -->
+        <circle class="fill-pop travel" r="7" cx="0" cy="0"/>
+        <!-- sparkles -->
+        <path class="stroke-in" style="--len:60;animation-delay:1.6s" d="M140 80 v22 M129 91 h22"/>
+        <path class="stroke-in" style="--len:40;animation-delay:1.8s" d="M430 250 v14 M423 257 h14"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- STEPS -->
+<section id="install">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="serif"><span lang="zh">三步装好</span><span lang="en">Three steps to install</span></h2>
+      <p><span lang="zh">需要 Claude 账号（免费版也可以）。不用 Claude 的话，往下翻有别的版本。</span><span lang="en">You need a Claude account (the free plan works). Not on Claude? There's another version further down.</span></p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n serif">1</span>
+        <svg class="draw" viewBox="0 0 240 110" aria-hidden="true">
+          <rect x="10" y="12" width="220" height="86" rx="14" style="fill:var(--surface)"/>
+          <line class="soft" x1="30" y1="42" x2="120" y2="42"/>
+          <line class="soft" x1="30" y1="66" x2="98" y2="66"/>
+          <rect class="toggle-track" x="160" y="40" width="52" height="28" rx="14" style="fill:var(--surface)"/>
+          <circle class="toggle-knob fill-pop" cx="174" cy="54" r="9"/>
+        </svg>
+        <h3><span lang="zh">打开代码执行</span><span lang="en">Turn on code execution</span></h3>
+        <div class="path"><span lang="zh">设置 → Capabilities → Code execution and file creation</span><span lang="en">Settings → Capabilities → Code execution and file creation</span></div>
+        <p><span lang="zh">这样它才能帮你生成一页纸的 Word 和 PDF 简历。Team 和企业账号需要管理员开。</span><span lang="en">This lets it build your one-page resume as Word and PDF files. On Team and Enterprise plans an admin turns it on.</span></p>
+      </div>
+      <div class="step">
+        <span class="n serif">2</span>
+        <svg class="draw" viewBox="0 0 240 110" aria-hidden="true">
+          <path d="M40 80 v14 a6 6 0 0 0 6 6 h148 a6 6 0 0 0 6 -6 v-14" />
+          <g class="bob">
+            <rect x="94" y="14" width="52" height="64" rx="8" style="fill:var(--surface)"/>
+            <line x1="120" y1="20" x2="120" y2="44" />
+            <line class="soft" x1="114" y1="26" x2="126" y2="26"/>
+            <line class="soft" x1="114" y1="34" x2="126" y2="34"/>
+            <text x="120" y="68" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="12" style="fill:var(--ink)">.zip</text>
+          </g>
+        </svg>
+        <h3><span lang="zh">上传 zip，不用解压</span><span lang="en">Upload the zip, don't unzip it</span></h3>
+        <div class="path">Customize → Skills → + → Upload a skill</div>
+        <p><span lang="zh">上传后在列表里把它打开。推荐建一个 Project 专门找工，它会把你的资料存在那里。</span><span lang="en">Then switch it on in the list. A dedicated Claude Project is recommended; that's where it keeps your files.</span></p>
+      </div>
+      <div class="step">
+        <span class="n serif">3</span>
+        <svg class="draw" viewBox="0 0 240 110" aria-hidden="true">
+          <path d="M22 22 h170 a12 12 0 0 1 12 12 v34 a12 12 0 0 1 -12 12 h-120 l-20 18 v-18 h-30 a12 12 0 0 1 -12 -12 v-34 a12 12 0 0 1 12 -12 z" style="fill:var(--surface)"/>
+          <text x="34" y="57" font-family="ui-monospace, Menlo, monospace" font-size="14" style="fill:var(--ink)">try a demo</text>
+          <rect class="caret" x="124" y="45" width="2" height="16" style="fill:var(--pop);stroke:none"/>
+        </svg>
+        <h3><span lang="zh">说一句话</span><span lang="en">Say one sentence</span></h3>
+        <div class="path">try a demo → set up my job search</div>
+        <p><span lang="zh">先说 try a demo 看看效果；准备好了说 set up my job search，再附上你的简历。</span><span lang="en">Start with "try a demo" to see what it does. When you're ready, say "set up my job search" and attach your resume.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo">
+  <div class="wrap">
+    <div class="demo">
+      <div>
+        <div class="eyebrow" style="color:inherit;opacity:.7"><span lang="zh">不想先交简历？</span><span lang="en">Not ready to share your resume?</span></div>
+        <h2 class="serif" style="margin-top:12px"><span lang="zh">先试玩，两分钟看到成品</span><span lang="en">See the result in two minutes</span></h2>
+        <p><span lang="zh">装好后对 Claude 说 try a demo。它会拿一个虚构的人物 Alex 和一个虚构的岗位，跑一遍完整的评估，再出一份一页纸简历。全程不问你问题，也不碰你的资料。觉得有用，再开始设置。</span><span lang="en">Once it's installed, say "try a demo". It runs a full assessment for a made-up person, Alex, against a made-up posting, then builds a one-page resume. No questions, nothing about you. Set up for real when you've seen it's useful.</span></p>
+        <div class="chip-big"><button class="chip" type="button" data-copy="try a demo" style="color:var(--bg)">try a demo <span class="tag"><span lang="zh">复制</span><span lang="en">Copy</span></span></button></div>
+      </div>
+      <div class="demo-art" aria-hidden="true">
+        <svg class="draw" viewBox="0 0 300 270">
+          <rect x="70" y="20" width="160" height="210" rx="14"/>
+          <line x1="96" y1="52" x2="170" y2="52"/>
+          <line x1="96" y1="66" x2="146" y2="66" style="opacity:.6"/>
+          <line x1="96" y1="96" x2="204" y2="96" style="opacity:.6"/>
+          <line x1="96" y1="112" x2="196" y2="112" style="opacity:.6"/>
+          <line x1="96" y1="128" x2="204" y2="128" style="opacity:.6"/>
+          <line x1="96" y1="158" x2="186" y2="158" style="opacity:.6"/>
+          <line x1="96" y1="174" x2="204" y2="174" style="opacity:.6"/>
+          <line x1="96" y1="190" x2="170" y2="190" style="opacity:.6"/>
+          <g class="bob">
+            <circle cx="236" cy="54" r="26" style="fill:var(--pop);stroke:none"/>
+            <polyline points="224,54 233,63 249,45" style="stroke:#fff;stroke-width:3"/>
+          </g>
+          <text x="150" y="262" text-anchor="middle" font-family="Newsreader, serif" font-style="italic" font-size="22" style="fill:var(--bg)">1 page</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMPTS -->
+<section id="say">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="serif"><span lang="zh">复制就能用的开场白</span><span lang="en">Things to say, ready to copy</span></h2>
+      <p><span lang="zh">不知道第一句说什么？挑一句复制过去就行，中文说也可以。</span><span lang="en">Not sure how to start? Copy one of these. Any language works.</span></p>
+    </div>
+    <div class="prompts">
+      <div class="prompt"><div style="min-width:0"><div class="what"><span lang="zh">两分钟试玩</span><span lang="en">Two-minute demo</span></div><div class="say">try a demo</div></div><button class="copy" type="button" data-copy="try a demo"><span lang="zh">复制</span><span lang="en">Copy</span></button></div>
+      <div class="prompt"><div style="min-width:0"><div class="what"><span lang="zh">第一次设置（附上简历）</span><span lang="en">First-time setup (attach your resume)</span></div><div class="say">set up my job search</div></div><button class="copy" type="button" data-copy="set up my job search"><span lang="zh">复制</span><span lang="en">Copy</span></button></div>
+      <div class="prompt"><div style="min-width:0"><div class="what"><span lang="zh">评估一个岗位</span><span lang="en">Check one posting</span></div><div class="say">Is this worth applying to? [paste the posting]</div></div><button class="copy" type="button" data-copy="Is this worth applying to? "><span lang="zh">复制</span><span lang="en">Copy</span></button></div>
+      <div class="prompt"><div style="min-width:0"><div class="what"><span lang="zh">每天筛新岗位</span><span lang="en">Daily screen</span></div><div class="say">run today's job search</div></div><button class="copy" type="button" data-copy="run today's job search"><span lang="zh">复制</span><span lang="en">Copy</span></button></div>
+      <div class="prompt"><div style="min-width:0"><div class="what"><span lang="zh">准备面试</span><span lang="en">Interview prep</span></div><div class="say">I have an interview with [company] on [day]. Help me prepare.</div></div><button class="copy" type="button" data-copy="I have an interview with [company] on [day]. Help me prepare."><span lang="zh">复制</span><span lang="en">Copy</span></button></div>
+      <div class="prompt"><div style="min-width:0"><div class="what"><span lang="zh">看看投得怎么样</span><span lang="en">Check your reply rate</span></div><div class="say">How are my applications doing?</div></div><button class="copy" type="button" data-copy="How are my applications doing?"><span lang="zh">复制</span><span lang="en">Copy</span></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="what">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="serif"><span lang="zh">从看 JD 到面完复盘</span><span lang="en">From the posting to the debrief</span></h2>
+      <p><span lang="zh">按一次求职真实发生的顺序排的。</span><span lang="en">In the order a job search actually happens.</span></p>
+    </div>
+    <div class="feats">
+      <div class="feat"><span class="big">1</span><div class="dot" style="background:var(--butter)"></div><h3><span lang="zh">建你的素材库</span><span lang="en">Build your evidence library</span></h3><p><span lang="zh">读你的简历，问几个具体问题，把每段经历的真实数字和多种写法存下来。之后所有简历都从这里取。</span><span lang="en">It reads your resume, asks concrete questions, and stores every real number and several framings of each role. Every resume is built from this.</span></p></div>
+      <div class="feat"><span class="big">2</span><div class="dot" style="background:var(--sky)"></div><h3><span lang="zh">值不值得投</span><span lang="en">Is it worth applying?</span></h3><p><span lang="zh">两个分：能不能做、值不值得。每条要求对上你的经历，缺口直接说，还会看你有没有别人没有的优势。</span><span lang="en">Two scores: can you do it, is it worth it. Every requirement matched to your experience, gaps named, and your edge over other applicants.</span></p></div>
+      <div class="feat"><span class="big">3</span><div class="dot" style="background:var(--blush)"></div><h3><span lang="zh">一页纸简历</span><span lang="en">A one-page resume</span></h3><p><span lang="zh">先给你看方案，你点头再出 Word 和 PDF。自动检查溢页、AI 腔、页面填满没有。</span><span lang="en">You approve a plan first, then get Word and PDF. Checked automatically for overflow, filler words and page fill.</span></p></div>
+      <div class="feat"><span class="big">4</span><div class="dot" style="background:var(--mint)"></div><h3><span lang="zh">申请表答案库</span><span lang="en">Form answer bank</span></h3><p><span lang="zh">同类题攒起来，下次改一句就能用。逼你往高了答的题，先给你诚实的选项。</span><span lang="en">Recurring questions saved for reuse. Questions that push you to overstate get the honest option first.</span></p></div>
+      <div class="feat"><span class="big">5</span><div class="dot" style="background:var(--lilac)"></div><h3><span lang="zh">投递记录和复盘</span><span lang="en">Tracker and check-ins</span></h3><p><span lang="zh">连 JD 全文一起存。投满 20 份，按岗位类型和投入程度算回音率，告诉你该往哪调。</span><span lang="en">Saved with the full job description. At 20 applications, reply rates by role type and effort, and what to change.</span></p></div>
+      <div class="feat"><span class="big">6</span><div class="dot" style="background:var(--pop)"></div><h3><span lang="zh">面试准备</span><span lang="en">Interview prep</span></h3><p><span lang="zh">预测题和用你真实经历写的答案，薪资怎么说。面完陪你复盘，哪里卡了、下次怎么说。</span><span lang="en">Likely questions, answers from your real experience, how to talk salary. Afterwards, where you got stuck and what to say next time.</span></p></div>
+    </div>
+    <div class="feats-pad"></div>
+  </div>
+</section>
+
+<!-- DIFFERENT -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="serif"><span lang="zh">它跟别的简历工具不一样的地方</span><span lang="en">What makes it different</span></h2>
+    </div>
+    <div class="diff">
+      <div><h3 class="serif"><span lang="zh">不帮你编</span><span lang="en">It won't make things up</span></h3><p><span lang="zh">素材库里没有的，它会问你"做过没有"。没做过就标成缺口，头衔照原样写，估出来的数字要你点头才用。</span><span lang="en">If it's not in your library, it asks. If you haven't done it, it's a gap. Titles stay as given, and estimates need your OK.</span></p></div>
+      <div><h3 class="serif"><span lang="zh">会叫你别投</span><span lang="en">It will tell you to skip</span></h3><p><span lang="zh">最近一段经历对不上、硬性要求有缺口、公司口碑有红旗，它会直接说，省下的时间留给值得的岗位。</span><span lang="en">Recent experience doesn't match, a must-have is missing, the company has red flags: it says so, and you spend the time where it counts.</span></p></div>
+      <div><h3 class="serif"><span lang="zh">用你的数据调方向</span><span lang="en">It learns from your replies</span></h3><p><span lang="zh">不只是记录投了什么。它看哪类岗位真的有回音，告诉你下一步把力气花在哪。</span><span lang="en">It doesn't just log what you sent. It looks at which kinds of roles actually reply and tells you where to put your effort next.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTABLE -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="portable">
+      <div style="min-width:0">
+        <h3 class="serif"><span lang="zh">不用 Claude？</span><span lang="en">Not using Claude?</span></h3>
+        <p><span lang="zh">整套流程也有一份通用的提示词版，贴进 ChatGPT、Gemini、DeepSeek、Kimi 的自定义指令就能用，再配一个一页纸简历模板。少的只是自动出文件和浏览器自动搜。</span><span lang="en">The whole workflow also comes as one portable prompt for ChatGPT, Gemini, DeepSeek or Kimi, plus a one-page resume template. You only lose the auto-built file and the browser search.</span></p>
+      </div>
+      <div class="links">
+        <a href="https://github.com/IchgehoernurmirZ/job-search-copilot/blob/main/PORTABLE_PROMPT.md" target="_blank" rel="noopener"><span lang="zh">通用提示词</span><span lang="en">Portable prompt</span> ↗</a>
+        <a href="https://github.com/IchgehoernurmirZ/job-search-copilot/raw/main/job-search-copilot/templates/resume-template.docx" target="_blank" rel="noopener"><span lang="zh">简历模板</span><span lang="en">Resume template</span> ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p><strong><span lang="zh">关于 LinkedIn 自动搜索：</span><span lang="en">About the LinkedIn browser mode:</span></strong> <span lang="zh">可选的浏览器模式会在你的 LinkedIn 账号上自动搜索和收藏岗位，这违反 LinkedIn 用户协议，账号可能被限制。默认关闭，开不开、风险由你自己决定。默认的贴链接模式没有这个问题。</span><span lang="en">The optional browser mode searches and saves jobs on your LinkedIn account. That's against LinkedIn's User Agreement and accounts can be restricted. It's off by default; turning it on is your call and your risk. The default paste-links mode has no such issue.</span></p>
+      <p><span lang="zh">评分和建议是 AI 根据公开信息和你自己的资料给的，可能出错，不构成职业建议。投出去的每份材料请自己过目。</span><span lang="en">Scores and advice are an AI's reading of public information and your own notes. They can be wrong and aren't career advice. Check everything before you send it.</span></p>
+      <p>MIT License · <a href="https://github.com/IchgehoernurmirZ/job-search-copilot" target="_blank" rel="noopener">github.com/IchgehoernurmirZ/job-search-copilot</a></p>
+    </div>
+    <div class="sig">made by zoey z</div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var app = document.getElementById('app');
+  function setLang(l) {
+    app.setAttribute('data-lang', l);
+    document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+    document.getElementById('lang-zh').setAttribute('aria-pressed', l === 'zh');
+    document.getElementById('lang-en').setAttribute('aria-pressed', l === 'en');
+    try { localStorage.setItem('jsc-lang', l); } catch (e) {}
+  }
+  var start = 'zh';
+  try {
+    var h = (location.hash || '').replace('#', '');
+    var saved = localStorage.getItem('jsc-lang');
+    if (h === 'en' || h === 'zh') start = h;
+    else if (saved === 'en' || saved === 'zh') start = saved;
+    else if (!/^zh/i.test(navigator.language || '')) start = 'en';
+  } catch (e) {}
+  setLang(start);
+  document.querySelectorAll('[data-set]').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); });
+  });
+
+  function flash(btn) {
+    btn.classList.add('done');
+    var old = btn.innerHTML;
+    btn.innerHTML = app.getAttribute('data-lang') === 'zh' ? '已复制' : 'Copied';
+    setTimeout(function () { btn.innerHTML = old; btn.classList.remove('done'); }, 1400);
+  }
+  function fallback(text, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); flash(btn); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { flash(btn); }, function () { fallback(text, btn); });
+      } else { fallback(text, btn); }
+    });
+  });
+})();
+</script>
