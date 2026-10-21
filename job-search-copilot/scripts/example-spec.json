@@ -1,93 +1,79 @@
 {
-  "name": "ALEX CHEN",
+  "name": "ZOEY Z",
   "contact": [
-    "Toronto, ON  ·  555-010-0199  ·  alex@example.com",
-    "linkedin.com/in/alexchen  ·  alexchen.dev"
+    "Toronto, ON  ·  zoey@example.com  ·  portfolio.example"
   ],
   "density": "roomy",
-  "order": [
-    "summary",
-    "skills",
-    "experience",
-    "projects",
-    "education",
-    "certifications"
-  ],
-  "summary": "Product analyst who turns messy operational data into decisions: **40+** dashboards in production at a B2B SaaS company, a reporting pipeline that cut weekly prep from **3 h** to **30 min**, and **12** shipped features scoped from user interviews. Comfortable between engineers, designers, and customers, and quick to prototype with AI tools.",
+  "order": ["summary", "skills", "experience", "projects", "education", "certifications"],
+  "summary": "Marketer with a software engineering start who writes the newsletter and builds the system behind it: an email program with a **41%** open rate, product pages rewritten for search and AI answers (**+35%** organic sessions), and a reporting automation that cut prep from **4 h** to **40 min**. Has worked in a 4-person startup and a large consultancy, and writes in English, Mandarin and German.",
   "skills": [
-    [
-      "Product",
-      "Discovery interviews, user stories and acceptance criteria, backlog grooming, release notes, A/B test design"
-    ],
-    [
-      "Data",
-      "SQL (joins, window functions), Python (pandas), Looker, Excel, Amplitude"
-    ],
-    [
-      "Tools",
-      "Jira, Confluence, Figma, Notion, Zapier, Claude"
-    ]
+    ["Writing & Content", "Newsletters, email flows, SEO and AEO, product copy, reports and decks for leadership"],
+    ["Systems & Automation", "GA4, UTM governance, APIs and scrapers, flow automation, data cleanup and naming rules, Claude"],
+    ["Events & Community", "Meetup sign-ups, venues and promotion, pilot launch coordination, staff training"],
+    ["Languages", "Mandarin (native), English (fluent), German (intermediate)"]
   ],
   "experience": [
     {
-      "company": "Northwind Labs",
-      "role": "Product Analyst",
-      "dates": "Jan 2024 – Present",
-      "context": "B2B scheduling software for clinics",
+      "company": "Home-decor e-commerce brand",
+      "role": "Marketing & Growth Lead",
+      "dates": "2025 – Present",
+      "context": "Online brand selling independent artists' work, team of 4",
       "location": "Toronto, ON",
       "bullets": [
-        "Built and maintain **40+** Looker dashboards used by product, sales, and support leads in weekly reviews.",
-        "Automated the weekly metrics pack with SQL and Python, cutting prep time from **3 h** to **30 min**.",
-        "Ran **25** customer interviews that reshaped the booking flow roadmap; the resulting redesign lifted completed bookings by **12%**.",
-        "Write user stories and acceptance criteria for **2** squads and run UAT before each release."
+        "Own the email program end to end: write, design and send the newsletter and **4** automated flows, with a **41%** open rate.",
+        "Rewrote **30** product pages for search and AI answer engines; organic sessions rose **35%** over two quarters.",
+        "Set up GA4, UTM naming rules and a weekly report the founder uses to decide where to spend.",
+        "Built an automation that pulls trending topics into a shared sheet each morning for content planning."
       ]
     },
     {
-      "company": "Harbor & Co.",
-      "role": "Operations Coordinator",
-      "dates": "Jun 2023 – Dec 2023",
-      "context": "Regional furniture retailer",
-      "location": "Mississauga, ON",
+      "company": "Automotive software company",
+      "role": "Engineering Intern (QA and tooling)",
+      "dates": "2023 – 2024",
+      "context": "Remote, team based in Germany",
+      "location": "",
       "bullets": [
-        "Rebuilt the delivery scheduling sheet into a shared tracker, reducing missed delivery windows by **30%** over one quarter.",
-        "Coordinated **6** vendors on a store reopening, keeping the launch on its original date.",
-        "Wrote the onboarding guide new coordinators still use."
+        "Automated a daily test report with an API, a scraper and a flow tool, cutting prep from **4 h** to **40 min**.",
+        "Agreed data naming rules with the team and cleaned **800+** test records to match them.",
+        "Wrote handover documents for an external vendor and for the German team."
       ]
     },
     {
-      "company": "University of Example",
-      "role": "Research Assistant",
-      "dates": "Sep 2022 – Apr 2023",
-      "context": "Human-computer interaction lab",
-      "location": "Toronto, ON",
+      "company": "Global tech consultancy",
+      "role": "Developer and Product Owner",
+      "dates": "2021 – 2022",
+      "context": "Retail app for a luxury car brand",
+      "location": "",
       "bullets": [
-        "Designed and ran a **40**-participant usability study comparing two mobile check-in flows.",
-        "Cleaned and analyzed study data in Python and presented findings at the lab's term showcase.",
-        "Co-authored the study's internal report used to pick the flow for the next pilot."
+        "Wrote the backlog, ticket templates and acceptance criteria for a team of **8**, and ran sprint reviews with the client.",
+        "Prepared the monthly progress report and milestone deck for the client's leadership.",
+        "Coordinated a pilot launch across **5** stores, including training sessions for store staff."
       ]
-    }
-  ],
-  "education": [
-    {
-      "school": "University of Example, Toronto, ON",
-      "degree": "B.Sc. Computer Science  ·  Dean's List",
-      "dates": "Sep 2019 – Apr 2023"
     }
   ],
   "projects": [
     {
-      "company": "Clinic Wait-Time Tracker",
-      "role": "Side project",
-      "dates": "2025",
-      "context": "No-code prototype built with Glide and Google Sheets",
-      "location": "",
+      "company": "Women's community group",
+      "role": "Volunteer, email and events",
+      "dates": "2026",
+      "context": "",
+      "location": "Toronto, ON",
       "bullets": [
-        "Interviewed **5** front-desk staff about wait-time questions, then built a check-in status page they could update from a phone.",
-        "Ran a two-week pilot at **1** clinic; staff reported fewer \"how much longer?\" calls at the desk."
+        "Design the email newsletter and helped run **3** meetups of **30+** people: sign-ups, venue and promotion."
       ]
+    },
+    {
+      "company": "Freelance translator and subtitler",
+      "role": "Mandarin, English, German",
+      "dates": "2017 – Present",
+      "context": "",
+      "location": "",
+      "bullets": []
     }
   ],
-  "certifications": [
-    "Professional Scrum Product Owner I (PSPO I), Scrum.org, 2025"
-  ]
+  "education": [
+    {"school": "MSc Information Systems, Toronto", "degree": "", "dates": "2025"},
+    {"school": "BA German Studies", "degree": "", "dates": "2021"}
+  ],
+  "certifications": ["Professional Scrum Product Owner I (PSPO I), 2026"]
 }

@@ -1,26 +1,30 @@
-# Sample posting (fictional, for the demo)
+# Sample posting (real, summarized for the demo)
 
-**Associate Product Manager, Patient Booking**
-Fernleaf Health · Toronto, ON (hybrid, 2 days in office) · $80,000 to $95,000
+_Zoey applied to this role in September 2026. This is a summary in our own
+words, not the full posting. Source:
+https://www.linkedin.com/jobs/view/4464620115/ (may have closed since)._
 
-**About us.** Fernleaf builds booking and intake software used by 900
-outpatient clinics across Canada.
+**Marketing & Operations Specialist, Platform & Operations**
+Golden Ventures (seed-stage venture capital firm, about 8 people) ·
+Toronto, hybrid 3 days a week plus events · salary not listed · reports to
+the Head of Platform & Operations
 
-**What you'll do**
-- Own the backlog for patient booking: write user stories and acceptance
-  criteria, and prioritize with your engineering lead
-- Run discovery interviews with clinic front-desk staff and patients
-- Define success metrics for each release and report on them
-- Partner with design and engineering to ship in two-week sprints
-- Write release notes and enablement material for the support team
+**What the role covers**
+- Own the newsletter: sourcing, writing, editing and sending
+- Content on LinkedIn and X; SEO and answer-engine optimization (AEO)
+- Track what works and improve it
+- Keep the CRM and portfolio / LP data clean and trusted
+- Spot manual work that repeats and automate it, including with AI tools
+- Prepare materials for investor reporting and the annual meeting (AGM)
+- Run events end to end: venue, vendors, guests, budget, on-site
 
-**What you bring**
-- 1 to 3 years in product, product analytics, or a related role (required)
-- Experience writing requirements or user stories (required)
-- Comfort with SQL or a BI tool (required)
-- Healthcare or scheduling software experience (nice to have)
-- Experience designing A/B tests (nice to have)
-- Figma (nice to have)
+**What they're looking for**
+- 2+ years full-time (required)
+- An excellent writer (required)
+- Interest in startups and venture capital (required)
+- Has worked in both a small team and a structured company (bonus)
+- Builds things outside a formal job (bonus)
+- Finance or consulting background (bonus)
 
-**Hiring process:** recruiter screen, product case (60 minutes, live),
-panel with the product and engineering leads.
+**From the posting itself:** it says plainly that part of the job is
+unglamorous, like printing name tags and cleaning the database.

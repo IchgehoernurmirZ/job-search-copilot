@@ -38,7 +38,7 @@ resume, ask the four essential questions, give the assessment, and build
 the rest of the library while making the resume, aimed at this posting's
 gaps. **If they're missing and there's no posting:** if they haven't seen the
 skill before, offer the demo first in one line ("want to see a two-minute
-demo with a made-up person before we set you up?"); otherwise run full
+demo on my own search before we set you up?"); otherwise run full
 setup (`references/setup.md`).
 
 ## Pick the module

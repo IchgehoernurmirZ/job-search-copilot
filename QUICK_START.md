@@ -28,7 +28,7 @@ No Project? It still works: attach both files whenever you start a new chat.
 
 ## 4. Your first session
 
-Not sure yet? Say **try a demo** first. Claude runs the whole flow for a made-up person against a made-up posting (fit check, resume plan, a finished one-page resume) in about two minutes. Nothing about you is used or saved.
+Not sure yet? Say **try a demo** first. Claude runs the whole flow for the author, Zoey (companies anonymized, numbers changed), against a real posting she applied to (fit check, how to close the gaps, resume plan, a finished one-page resume) in about two minutes. Nothing about you is used or saved.
 
 When you're ready, in the Project, start a chat and say:
 
@@ -43,7 +43,7 @@ Already have a job you want to look at? Paste it with your resume. Claude asks f
 | You say | Claude does |
 |---|---|
 | "Run today's job search" | Your most-used command. Finds today's new postings, filters out the ones that don't fit your rules, and gives you a short list (10 max by default). You pick, and it goes straight into an apply session: resumes and form answers for the ones you picked, in one batch. With Claude in Chrome connected it searches LinkedIn itself; without it, it asks you to paste the links |
-| Paste a job link / "is this worth applying to?" | Two scores (can you do it / is it worth it), each requirement matched to your experience with gaps flagged, company reputation and red flags |
+| Paste a job link / "is this worth applying to?" | Two scores (can you do it / is it worth it), each requirement matched to your experience, gaps flagged with how to close them, company reputation and red flags |
 | "Tailor my resume" | Shows a plan for you to approve, then a one-page DOCX + PDF, checked for overflow |
 | "Help me with this application form" | Drafts answers from your form answers and your experience, honestly, and saves new ones for next time |
 | "I applied" | Logs it in your tracker with the full job description (so you still have it if the posting comes down) |

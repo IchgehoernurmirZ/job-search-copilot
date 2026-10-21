@@ -113,7 +113,13 @@ Medium, and a dated "Settled decisions" log) and the fixed facts in
    commute or remote, growth, how much I'd enjoy it. Build a requirement →
    evidence table: each requirement, must-have or nice-to-have, the matching
    evidence, strength; no match gets a row marked GAP. A gap on a must-have
-   caps Fit and is named plainly.
+   caps Fit and is named plainly. Under the table, give each gap one line on
+   how I could close it: a quick fix (free course or the tool maker's own
+   certificate), a longer one (recognized certification), or experience
+   only (a small project or volunteer task). Free and official options
+   first, rough time and cost, only name courses you're sure exist, and say
+   whether it changes this application. A course in progress never counts
+   as evidence.
 4. **Edge and recency.** One line on the thing I have that most applicants
    won't (a language, a rare domain, being the exact user, a scarce tool);
    "no particular edge" is a valid answer. Then: does my most recent role's

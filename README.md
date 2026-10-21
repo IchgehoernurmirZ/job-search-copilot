@@ -15,7 +15,7 @@ decision gets recorded, and the rules you set once stick.
 | You say | Claude does |
 |---|---|
 | "Run today's job search" | Finds today's new postings, filters by your rules, gives you a short list (10 max by default). You pick, then it builds the resumes and form answers for the ones you picked in one batch. With Claude in Chrome connected it searches LinkedIn itself; without it, you paste links |
-| Paste a job link / "is this worth applying to?" | Two scores (can you do it / is it worth your time), every requirement matched to your experience with gaps named, your edge over other applicants, company reputation and red flags |
+| Paste a job link / "is this worth applying to?" | Two scores (can you do it / is it worth your time), every requirement matched to your experience, gaps named with a course or project that would close them, your edge over other applicants, company reputation and red flags |
 | "Tailor my resume" | A plan for you to approve, then a one-page DOCX + PDF, checked for overflow, filler words and page fill |
 | "Write a cover letter" | One page from your real material, only when a posting requires it |
 | "Help me with this application form" | Honest answers drafted from a reusable answer bank that grows with each application |
@@ -32,7 +32,7 @@ decision gets recorded, and the rules you set once stick.
 3. **Customize → Skills → + → Create skill → Upload a skill**, choose the zip.
 4. Toggle it on.
 
-Want to see it work first? Start a chat and say **"try a demo"**. Claude runs a full fit check and builds a one-page resume for a made-up person and posting, in about two minutes, without asking you anything.
+Want to see it work first? Start a chat and say **"try a demo"**. Claude runs a full fit check and builds a one-page resume for the author (companies anonymized, numbers changed) against a real posting she applied to, in about two minutes, without asking you anything.
 
 When you're ready, start a chat and say **"set up my job search"** with your current resume attached. Setup takes about 15 to 20 minutes, once. Already have a posting you want to look at? Paste it with your resume and Claude gives you a provisional fit check first.
 
@@ -86,7 +86,7 @@ job-search-copilot/
   SKILL.md                 what Claude reads first
   references/              one file per module: setup, tailor, daily screen,
                            tracker, interview, networking, demo
-  demo/                    fictional person and posting for "try a demo"
+  demo/                    the author's anonymized profile and a real posting, for "try a demo"
   templates/               the files Claude creates for you, plus a blank
                            one-page resume-template.docx for non-Claude use
   scripts/build_resume.js  one-page resume renderer (JSON spec in, DOCX out)

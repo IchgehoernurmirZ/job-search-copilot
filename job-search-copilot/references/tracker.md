@@ -86,7 +86,12 @@ Steps:
 5. Say what the numbers suggest, plainly: e.g. "quick-tier applications
    have 0 replies out of 30; medium tier 3 out of 12. Shift effort to
    medium." Or "fit 6 and below never converts; raise the bar."
-6. If cold applications have no replies and networking is `off`, mention
+6. **Repeating gaps.** Look across the assessments behind these
+   applications for a gap that keeps coming back (the same tool, cert or
+   kind of experience in several postings). Name the top one or two and the
+   closing suggestion already given for them (`tailor.md`, "Closing gaps").
+   That's the learning worth the time; one-off gaps aren't.
+7. If cold applications have no replies and networking is `off`, mention
    once that referrals are the usual fix (see `networking.md`). Their call.
-7. If they agree to change strategy, record it in `criteria.md` with the
+8. If they agree to change strategy, record it in `criteria.md` with the
    date and the numbers behind it.

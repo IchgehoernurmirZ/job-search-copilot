@@ -60,6 +60,28 @@ asset" wording), the matching evidence, and strength. Requirements with no
 match get a row marked **GAP**. A gap on a must-have caps the Fit score and
 is named plainly.
 
+**Closing gaps.** Under the table, give each GAP (and any weak row worth
+strengthening) one line on how the user could close it:
+
+- What kind of fix it is: **quick** (a free course or a tool maker's own
+  certificate, under about 10 hours), **longer** (a recognized
+  certification, weeks), or **experience only** (no course fixes it, so
+  suggest a small project, volunteer task or stretch at their current job
+  that would produce real evidence).
+- Prefer free and official options first (the tool maker's academy or
+  docs), then widely recognized certifications. Name a specific course only
+  after a web search confirms it exists and what it costs; without web
+  access, describe the kind of course and say to check. Give rough time and
+  cost.
+- Say whether it changes this application. A nice-to-have gap is rarely a
+  reason to wait; a must-have gap usually means apply later, apply with a
+  referral, or skip.
+- A course in progress is never evidence. Once finished, it goes into the
+  evidence library under Education and certifications; before that the
+  resume may say "in progress" only if they are actually enrolled.
+- If the same gap shows up across several postings, the calibration
+  check in `tracker.md` should point it out as the one worth investing in.
+
 **Edge and recency.** Two things a match score does not capture, and
 that in practice predict replies better than the score:
 
